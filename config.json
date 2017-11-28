@@ -1,0 +1,7 @@
+{
+    "url": "movati.dev",
+    "watch": [
+        "dist/**/*.php",
+        "dist/**/*.twig"
+    ]
+}

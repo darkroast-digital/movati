@@ -1,0 +1,137 @@
+.c-tabs {
+	padding-bottom: 2rem;
+}
+
+.c-tabs__nav {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	margin-bottom: 2rem;
+	
+	@include mq(m) {
+		display: none;
+	}
+	
+	li {
+		padding: .5rem 1rem;
+		cursor: pointer;
+		position: relative;
+		width: 150px;
+		height: 100px;
+
+		.inactive-tab {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.active-tab {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			display: none;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			display: none;
+			bottom: -2rem;
+			left: 50%;
+			transform: translateX(-50%);
+			border-left: 15px solid transparent;
+			border-right: 15px solid transparent;
+			border-bottom: 15px solid #7C7C7B;
+		}
+		
+		img {
+			height: 100px;
+		}
+
+		&.active {
+			
+			.inactive-tab {
+				display: none;
+			}
+
+			.active-tab {
+				display: block;
+			}
+
+			&:after {
+				display: block;
+			}
+		}
+	}
+}
+
+.c-tabs__container {
+	padding: 1rem;
+	background: #7C7C7B;
+	text-align: left;
+	max-width: 1000px;
+	margin: 0 auto;
+	color: $c-white;
+	font-weight: 600;
+	
+	h6 {
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-bottom: 3rem;
+		
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -1rem;
+			height: 100%;
+			width: 5px;
+			background: $c-primary;
+		}
+		
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: -1rem;
+			height: 100%;
+			width: 5px;
+			background: $c-primary;
+		}
+	}
+	
+	.c-tab__drawer {
+		display: none;
+		cursor: pointer;
+		background: $c-grey-lighter;
+		padding: 1rem 2rem;
+		font-family: $g-font-two;
+		font-weight: bold;
+		@include lock(font-size, 30rem, 75rem, 0.889rem, 1rem);
+		@include transition();
+		margin: 0;
+		
+		&:before {
+			display: none;
+		}
+		
+		&:after {
+			display: none;
+		}
+
+		&.active {
+			background: $c-white;
+		}
+
+		@include mq(m) {
+			display: block;
+		}	
+	}
+}
+
+
